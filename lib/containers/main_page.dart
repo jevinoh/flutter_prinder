@@ -17,14 +17,12 @@ class MainPage extends StatelessWidget {
         return new PagedScreen(
           controller: vm.controller,
           indicators: [
-            Icons.person,
-            Icons.whatshot,
-            Icons.message,
+            Icons.settings,
+            Icons.print,
           ],
           pages: <Widget>[
             new ProfilePage(),
             new SearchPage(),
-            new ChatPage(),
           ],
         );
       },
