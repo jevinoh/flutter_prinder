@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_tinder_template/actions/actions.dart';
-import 'package:flutter_tinder_template/containers/main_page.dart';
-import 'package:flutter_tinder_template/containers/profile_details_page.dart';
-import 'package:flutter_tinder_template/middleware/middlewares.dart';
-import 'package:flutter_tinder_template/models/models.dart';
-import 'package:flutter_tinder_template/reducers/app_state_reducer.dart';
-import 'package:flutter_tinder_template/utils/redux_logging.dart';
+import 'package:flutter_prinder/actions/actions.dart';
+import 'package:flutter_prinder/containers/main_page.dart';
+import 'package:flutter_prinder/containers/profile_details_page.dart';
+import 'package:flutter_prinder/middleware/middlewares.dart';
+import 'package:flutter_prinder/models/models.dart';
+import 'package:flutter_prinder/reducers/app_state_reducer.dart';
+import 'package:flutter_prinder/utils/redux_logging.dart';
 
 class MyApp extends StatelessWidget {
   final store = new Store<AppState>(
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return new StoreProvider(
       store: store,
       child: new MaterialApp(
-        title: 'Tinder Template',
+        title: 'Prinder',
         routes: {
           '/': (context) {
             return new StoreBuilder<AppState>(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_tinder_template/presentation/current_image_indicator.dart';
+import 'package:flutter_prinder/presentation/current_image_indicator.dart';
 
 class ImageCarousel extends StatefulWidget {
   ImageCarousel({

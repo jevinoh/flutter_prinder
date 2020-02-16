@@ -1,9 +1,9 @@
 import 'package:redux/redux.dart';
 
-import 'package:flutter_tinder_template/actions/actions.dart';
-import 'package:flutter_tinder_template/entities/entities.dart';
-import 'package:flutter_tinder_template/models/models.dart';
-import 'package:flutter_tinder_template/services/services.dart';
+import 'package:flutter_prinder/actions/actions.dart';
+import 'package:flutter_prinder/entities/entities.dart';
+import 'package:flutter_prinder/models/models.dart';
+import 'package:flutter_prinder/services/services.dart';
 
 List<Middleware<AppState>> createAllMiddlewares() {
   return [

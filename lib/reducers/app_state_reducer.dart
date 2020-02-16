@@ -1,4 +1,4 @@
-import 'package:flutter_tinder_template/models/models.dart';
+import 'package:flutter_prinder/models/models.dart';
 import 'loading_reducer.dart';
 import 'matchs_reducer.dart';
 import 'user_reducer.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_tinder_template/entities/entities.dart';
-import 'package:flutter_tinder_template/presentation/current_image_indicator.dart';
-import 'package:flutter_tinder_template/utils/formatters.dart';
+import 'package:flutter_prinder/entities/entities.dart';
+import 'package:flutter_prinder/presentation/current_image_indicator.dart';
+import 'package:flutter_prinder/utils/formatters.dart';
 
 class SwipeCard extends StatefulWidget {
   SwipeCard({

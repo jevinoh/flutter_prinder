@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_tinder_template/actions/actions.dart';
-import 'package:flutter_tinder_template/entities/entities.dart';
-import 'package:flutter_tinder_template/models/models.dart';
-import 'package:flutter_tinder_template/presentation/image_carousel.dart';
-import 'package:flutter_tinder_template/presentation/my_music_tile.dart';
-import 'package:flutter_tinder_template/presentation/rounded_button_icon.dart';
-import 'package:flutter_tinder_template/selectors/selectors.dart';
-import 'package:flutter_tinder_template/utils/formatters.dart';
+import 'package:flutter_prinder/actions/actions.dart';
+import 'package:flutter_prinder/entities/entities.dart';
+import 'package:flutter_prinder/models/models.dart';
+import 'package:flutter_prinder/presentation/image_carousel.dart';
+import 'package:flutter_prinder/presentation/my_music_tile.dart';
+import 'package:flutter_prinder/presentation/rounded_button_icon.dart';
+import 'package:flutter_prinder/selectors/selectors.dart';
+import 'package:flutter_prinder/utils/formatters.dart';
 
 class ProfileDetailsPage extends StatelessWidget {
   @override

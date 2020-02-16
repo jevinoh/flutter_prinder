@@ -1,4 +1,4 @@
-import 'package:flutter_tinder_template/entities/user_entity.dart';
+import 'package:flutter_prinder/entities/user_entity.dart';
 
 String makePresentationName(UserEntity user) {
   String name = user.name;

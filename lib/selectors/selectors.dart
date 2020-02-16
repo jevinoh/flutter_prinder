@@ -1,6 +1,6 @@
 import 'package:redux/redux.dart';
-import 'package:flutter_tinder_template/models/models.dart';
-import 'package:flutter_tinder_template/utils/formatters.dart';
+import 'package:flutter_prinder/models/models.dart';
+import 'package:flutter_prinder/utils/formatters.dart';
 
 AppState stateSelector(Store<AppState> store) => store.state;
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_tinder_template/entities/entities.dart';
-import 'package:flutter_tinder_template/models/models.dart';
-import 'package:flutter_tinder_template/presentation/chat_list_item.dart';
-import 'package:flutter_tinder_template/selectors/selectors.dart';
+import 'package:flutter_prinder/entities/entities.dart';
+import 'package:flutter_prinder/models/models.dart';
+import 'package:flutter_prinder/presentation/chat_list_item.dart';
+import 'package:flutter_prinder/selectors/selectors.dart';
 
 class ChatPage extends StatelessWidget {
   @override

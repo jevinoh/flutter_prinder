@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_tinder_template/entities/entities.dart';
-import 'package:flutter_tinder_template/models/models.dart';
-import 'package:flutter_tinder_template/presentation/swipe_card.dart';
-import 'package:flutter_tinder_template/selectors/selectors.dart';
+import 'package:flutter_prinder/entities/entities.dart';
+import 'package:flutter_prinder/models/models.dart';
+import 'package:flutter_prinder/presentation/swipe_card.dart';
+import 'package:flutter_prinder/selectors/selectors.dart';
 
 class SwipeStrangers extends StatelessWidget {
   @override

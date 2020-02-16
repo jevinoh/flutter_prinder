@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_tinder_template/entities/entities.dart';
-import 'package:flutter_tinder_template/models/models.dart';
-import 'package:flutter_tinder_template/selectors/selectors.dart';
-import 'package:flutter_tinder_template/presentation/search_actions.dart';
-import 'package:flutter_tinder_template/containers/swipe_strangers.dart';
-import 'package:flutter_tinder_template/presentation/image_radar.dart';
+import 'package:flutter_prinder/entities/entities.dart';
+import 'package:flutter_prinder/models/models.dart';
+import 'package:flutter_prinder/selectors/selectors.dart';
+import 'package:flutter_prinder/presentation/search_actions.dart';
+import 'package:flutter_prinder/containers/swipe_strangers.dart';
+import 'package:flutter_prinder/presentation/image_radar.dart';
 
 class SearchPage extends StatelessWidget {
   @override

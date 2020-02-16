@@ -1,5 +1,5 @@
-name: flutter_tinder_template
-description: A new Flutter project.
+name: flutter_prinder
+description: A hackaton project which was forked from flutter_tinder_template.
 
 dependencies:
   flutter:

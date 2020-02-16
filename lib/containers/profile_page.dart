@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_tinder_template/models/models.dart';
-import 'package:flutter_tinder_template/presentation/profile_button.dart';
-import 'package:flutter_tinder_template/presentation/profile_card.dart';
-import 'package:flutter_tinder_template/selectors/selectors.dart';
+import 'package:flutter_prinder/models/models.dart';
+import 'package:flutter_prinder/presentation/profile_button.dart';
+import 'package:flutter_prinder/presentation/profile_card.dart';
+import 'package:flutter_prinder/selectors/selectors.dart';
 
 class ProfilePage extends StatelessWidget {
   @override

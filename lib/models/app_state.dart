@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:flutter_tinder_template/models/models.dart';
+import 'package:flutter_prinder/models/models.dart';
 
 @immutable
 class AppState {

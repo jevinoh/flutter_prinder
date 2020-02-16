@@ -1,6 +1,6 @@
 import 'package:redux/redux.dart';
 
-import 'package:flutter_tinder_template/actions/actions.dart';
+import 'package:flutter_prinder/actions/actions.dart';
 
 final loadingReducer = combineReducers<bool>([
   new TypedReducer<bool, LoadAppAction>(_setLoading),

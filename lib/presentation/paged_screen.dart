@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_tinder_template/presentation/page_indicator.dart';
+import 'package:flutter_prinder/presentation/page_indicator.dart';
 
 class PagedScreen extends StatefulWidget {
   PagedScreen({

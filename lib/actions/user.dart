@@ -1,4 +1,4 @@
-import 'package:flutter_tinder_template/entities/entities.dart';
+import 'package:flutter_prinder/entities/entities.dart';
 
 class LoadUserAction {}
 
