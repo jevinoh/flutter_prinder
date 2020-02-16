@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_prinder/containers/profile_page.dart';
+import 'package:flutter_prinder/containers/preferences_page.dart';
 import 'package:flutter_prinder/containers/search_page.dart';
 import 'package:flutter_prinder/containers/chat_page.dart';
 import 'package:flutter_prinder/models/models.dart';
@@ -17,14 +17,12 @@ class MainPage extends StatelessWidget {
         return new PagedScreen(
           controller: vm.controller,
           indicators: [
-            Icons.person,
-            Icons.whatshot,
-            Icons.message,
+            Icons.settings,
+            Icons.print,
           ],
           pages: <Widget>[
-            new ProfilePage(),
+            new MyHomePage(title: 'Printer Preferences'),
             new SearchPage(),
-            new ChatPage(),
           ],
         );
       },
