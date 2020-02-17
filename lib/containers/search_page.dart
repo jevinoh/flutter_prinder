@@ -31,7 +31,7 @@ class SearchPage extends StatelessWidget {
                   )
             ),
             new SearchActions(
-              onBackPressed: vm.onBackPressed,
+              onRefreshed: vm.onRefreshed,
               onNopePressed: vm.onNopePressed,
               onSuperLikePressed: vm.onSuperLikePressed,
               onLikePressed: vm.onLikePressed,
@@ -48,7 +48,7 @@ class ViewModel {
   ViewModel({
     this.userFirstImageUrl,
     this.hasStrangers,
-    this.onBackPressed,
+    this.onRefreshed,
     this.onNopePressed,
     this.onSuperLikePressed,
     this.onLikePressed,
@@ -59,7 +59,7 @@ class ViewModel {
     return new ViewModel(
       userFirstImageUrl: userFirstImageUrlSelector(store),
       hasStrangers: hasStrangersSelector(store),
-      onBackPressed: () => print('back'),
+      onRefreshed: () => print('refresh'),
       onNopePressed: () => print('nope'),
       onSuperLikePressed: () => print('super like'),
       onLikePressed: () => print('like'),
@@ -69,7 +69,7 @@ class ViewModel {
 
   final String userFirstImageUrl;
   final bool hasStrangers;
-  final VoidCallback onBackPressed;
+  final VoidCallback onRefreshed;
   final VoidCallback onNopePressed;
   final VoidCallback onSuperLikePressed;
   final VoidCallback onLikePressed;

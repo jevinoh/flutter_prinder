@@ -4,14 +4,14 @@ import 'rounded_button_icon.dart';
 class SearchActions extends StatelessWidget {
   SearchActions({
     Key key,
-    this.onBackPressed,
+    this.onRefreshed,
     this.onNopePressed,
     this.onSuperLikePressed,
     this.onLikePressed,
     this.onBoostPressed,
   }) : super(key: key);
 
-  final VoidCallback onBackPressed;
+  final VoidCallback onRefreshed;
   final VoidCallback onNopePressed;
   final VoidCallback onSuperLikePressed;
   final VoidCallback onLikePressed;
@@ -29,14 +29,14 @@ class SearchActions extends StatelessWidget {
             height: 60.0,
             child: new Center(
               child: new RoundedButtonIcon(
-                icon: Icons.replay,
+                icon: Icons.refresh,
                 iconSize: 25.0,
                 padding: 10.0,
                 activeResizeFactor: 0.9,
                 color: Colors.white,
                 iconColor: Colors.yellow[700],
                 iconDisabledColor: Colors.black12,
-                onPressed: onBackPressed,
+                onPressed: onRefreshed,
               )
             )
           ),
@@ -45,7 +45,7 @@ class SearchActions extends StatelessWidget {
             height: 60.0,
             child: new Center(
               child: new RoundedButtonIcon(
-                icon: Icons.close,
+                icon: Icons.file_upload,
                 iconSize: 30.0,
                 padding: 15.0,
                 activeResizeFactor: 0.8,
