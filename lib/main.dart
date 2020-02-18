@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
                 store.dispatch(new LoadAppAction());
               },
               builder: (context, store) {
-                return new MainPage();
+                return new MainPage(store: store);
               }
             );
           },

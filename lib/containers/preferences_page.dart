@@ -7,10 +7,9 @@ import 'package:validators/validators.dart';
 import 'package:flutter_prinder/observers/search_observer.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title, this.searchObserver}) : super(key: key);
+  MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
-  final SearchObserverProvider searchObserver;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -51,7 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
             print('notifying another widget..');
           //widget.notifier.add(null);
             //searchPage.SearchPageState().rebuild();
-            widget.searchObserver.notify(ObserverState.REBUILD);
+            SearchObserverProvider _searchObserver = SearchObserverProvider();
+            _searchObserver.notify(ObserverState.REBUILD);
 
         },
         label: Text('Search'),

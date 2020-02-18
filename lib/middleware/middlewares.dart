@@ -9,7 +9,7 @@ List<Middleware<AppState>> createAllMiddlewares() {
   return [
     TypedMiddleware<AppState, LoadAppAction>(_initalizeApp),
     TypedMiddleware<AppState, LoadUserAction>(_loadCurrentUser),
-    TypedMiddleware<AppState, LoadMatchsAction>(_loadMatchs),
+//    TypedMiddleware<AppState, LoadMatchsAction>(_loadMatchs),
     TypedMiddleware<AppState, LoadStrangersAction>(_loadStrangers),
   ];
 }
@@ -25,7 +25,7 @@ void _loadCurrentUser(Store<AppState> store, action, NextDispatcher next) async 
   try {
     UserEntity user =  await UsersService.loadCurrentUser();
 
-    store.dispatch(new LoadMatchsAction());
+//    store.dispatch(new LoadMatchsAction());
     store.dispatch(new LoadStrangersAction());
     store.dispatch(new LoadUserSuccessAction(user));
   } catch (error) {

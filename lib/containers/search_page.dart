@@ -8,24 +8,26 @@ import 'package:flutter_prinder/presentation/search_actions.dart';
 import 'package:flutter_prinder/containers/swipe_strangers.dart';
 import 'package:flutter_prinder/presentation/image_radar.dart';
 import 'package:flutter_prinder/observers/search_observer.dart';
+import 'package:flutter_prinder/services/services.dart';
+import 'package:flutter_prinder/actions/strangers.dart';
 
 
 class SearchPage extends StatefulWidget {
-  SearchPage({Key key, this.title,  this.searchObserver}) : super(key: key);
+  SearchPage({Key key, this.title, this.store}) : super(key: key);
 
   final String title;
-  final SearchObserverProvider searchObserver;
-
+  final Store<AppState> store;
   @override
-  SearchPageState createState() => SearchPageState();
+  State<StatefulWidget> createState() => SearchPageState();
 }
 
 
 class SearchPageState extends State<SearchPage> implements SearchObserverStateListener {
+  SearchObserverProvider searchObserver;
 
   SearchPageState() {
-    //subscribe
-    widget.searchObserver.subscribe(this);
+    searchObserver = new SearchObserverProvider();
+    searchObserver.subscribe(this);
   }
 
   @override
@@ -70,9 +72,26 @@ class SearchPageState extends State<SearchPage> implements SearchObserverStateLi
     );
   }
 
-  void rebuild() {
-    setState(() {});
+  void rebuild() async {
+    //searchObserver.dispose(this);
+    try {
+      List<UserEntity> users = await UsersService.loadStrangers();
+
+      widget.store.dispatch(new LoadStrangersSuccessAction(users));
+    } catch (error) {
+      widget.store.dispatch(new LoadStrangersFailAction(error.message));
+    }
+
+    didUpdateWidget(widget);
+    //setState(() {});
   }
+//
+//  @override
+//  void didUpdateWidget(SearchPage oldWidget) {
+//    if(oldWidget._start != widget.start || oldWidget._end != widg.end) {
+//
+//    }
+//  }
 }
 
 class ViewModel {

@@ -42,7 +42,7 @@ class ViewModel {
 
   static ViewModel fromStore(Store<AppState> store) {
     return new ViewModel(
-      matchs: matchsSelector(store).matchs,
+     // matchs: matchsSelector(store).matchs,
     );
   }
 

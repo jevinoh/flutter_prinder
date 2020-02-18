@@ -8,8 +8,8 @@ AppState appReducer(AppState state, action) {
   return new AppState(
     isLoading: loadingReducer(state.isLoading, action),
     mainInitialPage: 1,
-    user: userReducer(state.user, action),
-    matchs: matchsReducer(state.matchs, action),
+//    user: userReducer(state.user, action),
+//    matchs: matchsReducer(state.matchs, action),
     strangers: strangersReducer(state.strangers, action),
   );
 }

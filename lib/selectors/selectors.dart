@@ -32,7 +32,7 @@ String userFirstImageUrlSelector(Store<AppState> store) {
   return '';
 }
 
-Matchs matchsSelector(Store<AppState> store) => stateSelector(store).matchs;
+//Matchs matchsSelector(Store<AppState> store) => stateSelector(store).matchs;
 
 Strangers strangersSelector(Store<AppState> store) => stateSelector(store).strangers;
 
