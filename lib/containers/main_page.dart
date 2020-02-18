@@ -7,8 +7,15 @@ import 'package:flutter_prinder/containers/chat_page.dart';
 import 'package:flutter_prinder/models/models.dart';
 import 'package:flutter_prinder/presentation/paged_screen.dart';
 import 'package:flutter_prinder/selectors/selectors.dart';
+import 'package:flutter_prinder/observers/search_observer.dart';
 
 class MainPage extends StatelessWidget {
+  var searchObserver;
+  MainPage() {
+    //create subscription here
+    searchObserver = new SearchObserverProvider();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new StoreConnector<AppState, ViewModel>(
@@ -21,8 +28,9 @@ class MainPage extends StatelessWidget {
             Icons.print,
           ],
           pages: <Widget>[
-            new MyHomePage(title: 'Printer Preferences'),
-            new SearchPage(),
+            new MyHomePage(title: 'Printer Preferences',
+            searchObserver: searchObserver),
+            new SearchPage(searchObserver: searchObserver),
           ],
         );
       },

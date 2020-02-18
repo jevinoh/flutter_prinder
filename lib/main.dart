@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new StoreProvider(
+      return new StoreProvider(
       store: store,
       child: new MaterialApp(
         title: 'Prinder',

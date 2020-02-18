@@ -7,8 +7,35 @@ import 'package:flutter_prinder/selectors/selectors.dart';
 import 'package:flutter_prinder/presentation/search_actions.dart';
 import 'package:flutter_prinder/containers/swipe_strangers.dart';
 import 'package:flutter_prinder/presentation/image_radar.dart';
+import 'package:flutter_prinder/observers/search_observer.dart';
 
-class SearchPage extends StatelessWidget {
+
+class SearchPage extends StatefulWidget {
+  SearchPage({Key key, this.title,  this.searchObserver}) : super(key: key);
+
+  final String title;
+  final SearchObserverProvider searchObserver;
+
+  @override
+  SearchPageState createState() => SearchPageState();
+}
+
+
+class SearchPageState extends State<SearchPage> implements SearchObserverStateListener {
+
+  SearchPageState() {
+    //subscribe
+    widget.searchObserver.subscribe(this);
+  }
+
+  @override
+  onStateChanged(ObserverState state) {
+    //Do something when you detected a change
+    if (state == ObserverState.REBUILD) {
+      rebuild();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double imageRadarSize = MediaQuery.of(context).size.width / 4;
@@ -41,6 +68,10 @@ class SearchPage extends StatelessWidget {
         );
       }
     );
+  }
+
+  void rebuild() {
+    setState(() {});
   }
 }
 
