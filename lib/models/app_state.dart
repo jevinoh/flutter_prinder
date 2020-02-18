@@ -7,10 +7,9 @@ class AppState {
     this.isLoading: false,
     this.mainInitialPage,
     User user,
-    Matchs matchs,
     Strangers strangers,
-  }) : this.user = user ?? new User.loading(),
-       this.matchs = matchs ?? new Matchs.loading(),
+  }) :
+       this.user = user ?? new User.loading(),
        this.strangers = strangers ?? new Strangers.loading();
 
   factory AppState.loading() => new AppState(isLoading: true);
@@ -18,21 +17,18 @@ class AppState {
   final bool isLoading;
   final int mainInitialPage;
   final User user;
-  final Matchs matchs;
   final Strangers strangers;
 
   AppState copyWith({
     bool isLoading,
     int mainInitialPage,
     User user,
-    Matchs matchs,
     Strangers strangers,
   }) {
     return new AppState(
       isLoading: isLoading ?? this.isLoading,
       mainInitialPage: mainInitialPage ?? this.mainInitialPage,
       user: user ?? this.user,
-      matchs: matchs ?? this.matchs,
       strangers: strangers,
     );
   }
@@ -42,7 +38,6 @@ class AppState {
     isLoading.hashCode ^
     mainInitialPage.hashCode ^
     user.hashCode ^
-    matchs.hashCode ^
     strangers.hashCode;
 
   @override
@@ -52,10 +47,9 @@ class AppState {
     isLoading == other.isLoading &&
     mainInitialPage == other.mainInitialPage &&
     user == other.user &&
-    matchs == other.matchs &&
     strangers == other.strangers;
 
   @override
   String toString() =>
-    'AppState{isLoading: $isLoading, mainInitialPage: $mainInitialPage, user: $user, matchs: $matchs, strangers: $strangers}';
+    'AppState{isLoading: $isLoading, mainInitialPage: $mainInitialPage, strangers: $strangers}';
 }

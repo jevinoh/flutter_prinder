@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:preferences/preference_service.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_prinder/actions/actions.dart';
 import 'package:flutter_prinder/containers/main_page.dart';
 import 'package:flutter_prinder/containers/profile_details_page.dart';
+import 'package:flutter_prinder/containers/preferences_page.dart';
 import 'package:flutter_prinder/middleware/middlewares.dart';
 import 'package:flutter_prinder/models/models.dart';
 import 'package:flutter_prinder/reducers/app_state_reducer.dart';
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new StoreProvider(
+      return new StoreProvider(
       store: store,
       child: new MaterialApp(
         title: 'Prinder',
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
                 store.dispatch(new LoadAppAction());
               },
               builder: (context, store) {
-                return new MainPage();
+                return new MainPage(store: store);
               }
             );
           },
@@ -46,4 +48,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-void main() => runApp(new MyApp());
+main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await PrefService.init(prefix: 'pref_');
+  PrefService.setDefaultValues({'user_description' : 'This is my description'});
+  runApp(MyApp());
+}

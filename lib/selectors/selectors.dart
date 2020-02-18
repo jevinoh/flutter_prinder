@@ -32,8 +32,6 @@ String userFirstImageUrlSelector(Store<AppState> store) {
   return '';
 }
 
-Matchs matchsSelector(Store<AppState> store) => stateSelector(store).matchs;
-
 Strangers strangersSelector(Store<AppState> store) => stateSelector(store).strangers;
 
 bool hasStrangersSelector(Store<AppState> store) => strangersSelector(store).strangers.length > 0;
