@@ -24,6 +24,18 @@ class UsersService {
     );
   }
 
+  static List<PreferenceEntity> loadPrefences() {
+    List<PreferenceEntity> _preference = [];
+
+    _preference.add( new PreferenceEntity(
+                paperSize : "A4",
+                color: "No",
+                mfp: "No",
+                location: "Empty") );
+
+    return _preference;
+  }
+
   static Future<List<PrinterEntity>> loadPrinters() async {
     List<PrinterEntity> _printers = [];
     Random random = new Random();

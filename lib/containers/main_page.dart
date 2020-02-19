@@ -25,7 +25,7 @@ class MainPage extends StatelessWidget {
             Icons.print,
           ],
           pages: <Widget>[
-            new MyHomePage(title: 'Printer Preferences'),
+            new MyHomePage(title: 'Printer Preferences', store: store),
             new SearchPage(store: store),
           ],
         );
