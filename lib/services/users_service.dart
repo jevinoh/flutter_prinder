@@ -24,6 +24,30 @@ class UsersService {
     );
   }
 
+  static Future<List<PrinterEntity>> loadPrinters() async {
+    List<PrinterEntity> _printers = [];
+    Random random = new Random();
+
+    String getPrinter = "http://10.194.48.174:8080/get_all_printers";
+
+    http.Response response = await http.get(getPrinter);
+
+    List printersData = json.decode(response.body)['printers'];
+    for (var printerData in printersData) {
+
+      _printers.add(new PrinterEntity(
+        id: printerData['id'] as String,
+        name: printerData['name'] as String,
+        status: printerData['status'] as String,
+        description: 'My Description',
+        image: printerData['image'] as String,
+        distance: random.nextInt(100),
+      ));
+    }
+
+    return _printers;
+  }
+
   static Future<List<UserEntity>> loadStrangers() async {
     return loadUsers(
       results: 1,

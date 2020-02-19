@@ -19,13 +19,13 @@ class SearchActions extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           new Container(
-            width: 80.0,
-            height: 80.0,
+            width: 60.0,
+            height: 60.0,
             child: new Center(
               child: new RoundedButtonIcon(
                 icon: Icons.refresh,
-                iconSize: 60.0,
-                padding: 20.0,
+                iconSize: 40.0,
+                padding: 10.0,
                 activeResizeFactor: 0.9,
                 color: Colors.white,
                 iconColor: Colors.yellow[700],
@@ -35,13 +35,13 @@ class SearchActions extends StatelessWidget {
             )
           ),
           new Container(
-            width: 80.0,
-            height: 80.0,
+            width: 60.0,
+            height: 60.0,
             child: new Center(
               child: new RoundedButtonIcon(
                 icon: Icons.file_upload,
-                iconSize: 60.0,
-                padding: 20.0,
+                iconSize: 40.0,
+                padding: 10.0,
                 activeResizeFactor: 0.9,
                 color: Colors.white,
                 iconColor: Colors.redAccent,

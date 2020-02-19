@@ -7,29 +7,29 @@ class AppState {
     this.isLoading: false,
     this.mainInitialPage,
     User user,
-    Strangers strangers,
+    Printers printers,
   }) :
        this.user = user ?? new User.loading(),
-       this.strangers = strangers ?? new Strangers.loading();
+       this.printers = printers ?? new Printers.loading();
 
   factory AppState.loading() => new AppState(isLoading: true);
 
   final bool isLoading;
   final int mainInitialPage;
   final User user;
-  final Strangers strangers;
+  final Printers printers;
 
   AppState copyWith({
     bool isLoading,
     int mainInitialPage,
     User user,
-    Strangers strangers,
+    Printers printers,
   }) {
     return new AppState(
       isLoading: isLoading ?? this.isLoading,
       mainInitialPage: mainInitialPage ?? this.mainInitialPage,
       user: user ?? this.user,
-      strangers: strangers,
+      printers: printers,
     );
   }
 
@@ -38,7 +38,7 @@ class AppState {
     isLoading.hashCode ^
     mainInitialPage.hashCode ^
     user.hashCode ^
-    strangers.hashCode;
+    printers.hashCode;
 
   @override
   bool operator ==(dynamic other) =>
@@ -47,9 +47,9 @@ class AppState {
     isLoading == other.isLoading &&
     mainInitialPage == other.mainInitialPage &&
     user == other.user &&
-    strangers == other.strangers;
+    printers == other.printers;
 
   @override
   String toString() =>
-    'AppState{isLoading: $isLoading, mainInitialPage: $mainInitialPage, strangers: $strangers}';
+    'AppState{isLoading: $isLoading, mainInitialPage: $mainInitialPage, printers: $printers}';
 }

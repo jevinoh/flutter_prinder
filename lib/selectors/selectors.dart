@@ -32,6 +32,10 @@ String userFirstImageUrlSelector(Store<AppState> store) {
   return '';
 }
 
-Strangers strangersSelector(Store<AppState> store) => stateSelector(store).strangers;
+//Strangers strangersSelector(Store<AppState> store) => stateSelector(store).strangers;
 
-bool hasStrangersSelector(Store<AppState> store) => strangersSelector(store).strangers.length > 0;
+//bool hasStrangersSelector(Store<AppState> store) => strangersSelector(store).strangers.length > 0;
+
+Printers printersSelector(Store<AppState> store) => stateSelector(store).printers;
+
+bool hasPrintersSelector(Store<AppState> store) => printersSelector(store).printers.length > 0;

@@ -37,11 +37,6 @@ class MyApp extends StatelessWidget {
               }
             );
           },
-          '/user-profile-details': (context) {
-            return new StoreBuilder<AppState>(
-              builder: (context, store) => new ProfileDetailsPage(),
-            );
-          }
         },
       ),
     );

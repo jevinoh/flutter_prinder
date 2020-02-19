@@ -13,10 +13,10 @@ class SwipeCard extends StatefulWidget {
     this.onPreviousImage,
     this.onSeeDetails,
   }) : assert(initialImageIndex >= 0),
-       assert(initialImageIndex < profile.images.length || initialImageIndex == 0),
+       assert(initialImageIndex < profile.length || initialImageIndex == 0),
        super(key: key);
 
-  final UserEntity profile;
+  final List<PrinterEntity> profile;
   final int initialImageIndex;
   final ValueChanged<int> onNextImage;
   final ValueChanged<int> onPreviousImage;
@@ -50,8 +50,8 @@ class _SwipeCardState extends State<SwipeCard> {
         ],
         image: new DecorationImage(
           fit: BoxFit.cover,
-          image: widget.profile.images.length > 0
-            ? new NetworkImage(widget.profile.images[currentImageIndex])
+          image: widget.profile.length > 0
+            ? new NetworkImage(widget.profile[currentImageIndex].image)
             : new AssetImage('images/empty.jpg')
         ),
       ),
@@ -65,7 +65,7 @@ class _SwipeCardState extends State<SwipeCard> {
                 color: Colors.transparent,
                 padding: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
                 child: new CurrentImageIndicator(
-                  size: widget.profile.images.length,
+                  size: widget.profile.length,
                   activeIndex: currentImageIndex,
                 ),
               ),
@@ -106,7 +106,7 @@ class _SwipeCardState extends State<SwipeCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               new Text(
-                makePresentationName(widget.profile),
+                makePrinterPresentationName(widget.profile[currentImageIndex]),
                 style: new TextStyle(
                   fontSize: 30.0,
                   color: Colors.white
@@ -132,7 +132,7 @@ class _SwipeCardState extends State<SwipeCard> {
           widget.onPreviousImage(currentImageIndex);
       }
     } else {
-      if (currentImageIndex < widget.profile.images.length - 1) {
+      if (currentImageIndex < widget.profile.length - 1) {
         setState(() => currentImageIndex++);
         if (widget.onNextImage != null)
           widget.onNextImage(currentImageIndex);
@@ -144,4 +144,5 @@ class _SwipeCardState extends State<SwipeCard> {
     if (widget.onSeeDetails != null)
       widget.onSeeDetails();
   }
+
 }

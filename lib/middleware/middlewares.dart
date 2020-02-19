@@ -1,3 +1,4 @@
+import 'package:flutter_prinder/actions/preferences.dart';
 import 'package:redux/redux.dart';
 
 import 'package:flutter_prinder/actions/actions.dart';
@@ -8,14 +9,16 @@ import 'package:flutter_prinder/services/services.dart';
 List<Middleware<AppState>> createAllMiddlewares() {
   return [
     TypedMiddleware<AppState, LoadAppAction>(_initalizeApp),
-    TypedMiddleware<AppState, LoadUserAction>(_loadCurrentUser),
-    TypedMiddleware<AppState, LoadStrangersAction>(_loadStrangers),
+    TypedMiddleware<AppState, LoadPreferencesAction>(_loadPreference),
+//    TypedMiddleware<AppState, LoadUserAction>(_loadCurrentUser),
+    TypedMiddleware<AppState, LoadPrintersAction>(_loadPrinters),
   ];
 }
 
 void _initalizeApp(Store<AppState> store, action, NextDispatcher next) {
   next(action);
-  next(new LoadUserAction());
+  next(new LoadPreferencesAction());
+  next(new LoadPrintersAction());
 }
 
 void _loadCurrentUser(Store<AppState> store, action, NextDispatcher next) async {
@@ -24,7 +27,8 @@ void _loadCurrentUser(Store<AppState> store, action, NextDispatcher next) async 
   try {
     UserEntity user =  await UsersService.loadCurrentUser();
 
-    store.dispatch(new LoadStrangersAction());
+//    store.dispatch(new LoadStrangersAction());
+    store.dispatch(new LoadPrintersAction());
     store.dispatch(new LoadUserSuccessAction(user));
   } catch (error) {
     store.dispatch(new LoadUserFailAction(error.message));
@@ -43,14 +47,28 @@ void _loadMatchs(Store<AppState> store, action, NextDispatcher next) async {
   }
 }
 
-void _loadStrangers(Store<AppState> store, action, NextDispatcher next) async {
+void _loadPreference(Store<AppState> store, action, NextDispatcher next) {
   next(action);
 
   try {
-    List<UserEntity> users = await UsersService.loadStrangers();
 
-    store.dispatch(new LoadStrangersSuccessAction(users));
+    List<PreferenceEntity> preference = UsersService.loadPrefences();
+    store.dispatch(new LoadPreferencesSuccessAction(preference));
+
   } catch (error) {
-    store.dispatch(new LoadStrangersFailAction(error.message));
+    store.dispatch(new LoadPreferencesFailAction(error.message));
+  }
+}
+
+
+void _loadPrinters(Store<AppState> store, action, NextDispatcher next) async {
+  next(action);
+
+  try {
+    List<PrinterEntity> printers = await UsersService.loadPrinters();
+
+    store.dispatch(new LoadPrintersSuccessAction(printers));
+  } catch (error) {
+    store.dispatch(new LoadPrintersFailAction(error.message));
   }
 }

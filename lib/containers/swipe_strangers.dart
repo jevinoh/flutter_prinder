@@ -12,9 +12,9 @@ class SwipeStrangers extends StatelessWidget {
     return new StoreConnector<AppState, ViewModel>(
       converter: ViewModel.fromStore,
       builder: (context, vm) {
-        return vm.strangers.length > 0
+        return vm.printers.length > 0
           ? SwipeCard(
-              profile: vm.strangers[0],
+              profile: vm.printers,
               initialImageIndex: vm.currentImageIndex,
               onNextImage: vm.onNextImage,
               onPreviousImage: vm.onPreviousImage,
@@ -28,7 +28,7 @@ class SwipeStrangers extends StatelessWidget {
 
 class ViewModel {
   ViewModel({
-    this.strangers,
+    this.printers,
     this.onNextImage,
     this.onPreviousImage,
     this.onSeeDetails,
@@ -36,15 +36,15 @@ class ViewModel {
 
   static ViewModel fromStore(Store<AppState> store) {
     return new ViewModel(
-      strangers: strangersSelector(store).strangers,
+      printers: printersSelector(store).printers,
       onNextImage: (imageIndex) => print('currentImageIndex: $imageIndex'),
       onPreviousImage: (imageIndex) => print('currentImageIndex: $imageIndex'),
-      onSeeDetails: () => print('See Details')
+      onSeeDetails: () => print('See Details :')
     );
   }
 
   int currentImageIndex = 0;
-  final List<UserEntity> strangers;
+  final List<PrinterEntity> printers;
   final ValueChanged onNextImage;
   final ValueChanged onPreviousImage;
   final VoidCallback onSeeDetails;

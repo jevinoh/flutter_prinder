@@ -9,7 +9,7 @@ import 'package:flutter_prinder/containers/swipe_strangers.dart';
 import 'package:flutter_prinder/presentation/image_radar.dart';
 import 'package:flutter_prinder/observers/search_observer.dart';
 import 'package:flutter_prinder/services/services.dart';
-import 'package:flutter_prinder/actions/strangers.dart';
+import 'package:flutter_prinder/actions/actions.dart';
 
 
 class SearchPage extends StatefulWidget {
@@ -47,7 +47,7 @@ class SearchPageState extends State<SearchPage> implements SearchObserverStateLi
         return new Column(
           children: <Widget>[
             new Expanded(
-              child: vm.hasStrangers
+              child: vm.hasPrinters
                 ? new Padding(
                     padding: new EdgeInsets.only(left: 10.0, top: 5.0, right: 10.0),
                     child: new SwipeStrangers()
@@ -71,11 +71,11 @@ class SearchPageState extends State<SearchPage> implements SearchObserverStateLi
 
   void rebuild() async {
     try {
-      List<UserEntity> users = await UsersService.loadStrangers();
+      List<PrinterEntity> printers = await UsersService.loadPrinters();
 
-      widget.store.dispatch(new LoadStrangersSuccessAction(users));
+      widget.store.dispatch(new LoadPrintersSuccessAction(printers));
     } catch (error) {
-      widget.store.dispatch(new LoadStrangersFailAction(error.message));
+      widget.store.dispatch(new LoadPrintersFailAction(error.message));
     }
 
     didUpdateWidget(widget);
@@ -85,7 +85,7 @@ class SearchPageState extends State<SearchPage> implements SearchObserverStateLi
 class ViewModel {
   ViewModel({
     this.userFirstImageUrl,
-    this.hasStrangers,
+    this.hasPrinters,
     this.onRefreshed,
     this.onUploadFile,
   });
@@ -93,14 +93,14 @@ class ViewModel {
   static ViewModel fromStore(Store<AppState> store) {
     return new ViewModel(
       userFirstImageUrl: userFirstImageUrlSelector(store),
-      hasStrangers: hasStrangersSelector(store),
+      hasPrinters: hasPrintersSelector(store),
       onRefreshed: () => print('refresh'),
       onUploadFile: () => print('upload a file'),
     );
   }
 
   final String userFirstImageUrl;
-  final bool hasStrangers;
+  final bool hasPrinters;
   final VoidCallback onRefreshed;
   final VoidCallback onUploadFile;
 
