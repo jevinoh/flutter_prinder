@@ -10,6 +10,7 @@ import 'package:flutter_prinder/presentation/image_radar.dart';
 import 'package:flutter_prinder/observers/search_observer.dart';
 import 'package:flutter_prinder/services/services.dart';
 import 'package:flutter_prinder/actions/actions.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 
 
 class SearchPage extends StatefulWidget {
@@ -52,11 +53,26 @@ class SearchPageState extends State<SearchPage> implements SearchObserverStateLi
                     padding: new EdgeInsets.only(left: 10.0, top: 5.0, right: 10.0),
                     child: new SwipeStrangers()
                   )
-                : new ImageRadar(
-                    diameter: imageRadarSize,
-                    image: vm.userFirstImageUrl == ''
-                      ? new AssetImage('images/empty.jpg')
-                      : new NetworkImage(vm.userFirstImageUrl)
+                : new AvatarGlow(
+                    startDelay: Duration(milliseconds: 1000),
+                    glowColor: Colors.pink,
+                    endRadius: 150.0,
+                    duration: Duration(milliseconds: 2000),
+                    repeat: true,
+                    showTwoGlows: true,
+                    repeatPauseDuration: Duration(milliseconds: 100),
+                    child: Material(
+                      elevation: 8.0,
+                      shape: CircleBorder(),
+                      child: CircleAvatar(
+                          backgroundColor:Colors.grey[100] ,
+                          backgroundImage: AssetImage('images/gavin.jpg'),
+                          maxRadius: 40.0,
+                      ),
+                    ),
+                    shape: BoxShape.circle,
+                    animate: true,
+                    curve: Curves.fastOutSlowIn,
                   )
             ),
             new SearchActions(
