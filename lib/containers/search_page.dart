@@ -11,6 +11,7 @@ import 'package:flutter_prinder/observers/search_observer.dart';
 import 'package:flutter_prinder/services/services.dart';
 import 'package:flutter_prinder/actions/actions.dart';
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:http/http.dart' as http;
 
 
 class SearchPage extends StatefulWidget {
@@ -24,6 +25,8 @@ class SearchPage extends StatefulWidget {
 
 
 class SearchPageState extends State<SearchPage> implements SearchObserverStateListener {
+
+  int currentImageIndex = 0;
   SearchObserverProvider searchObserver;
 
   SearchPageState() {
@@ -51,7 +54,7 @@ class SearchPageState extends State<SearchPage> implements SearchObserverStateLi
               child: vm.hasPrinters
                 ? new Padding(
                     padding: new EdgeInsets.only(left: 10.0, top: 5.0, right: 10.0),
-                    child: new SwipeStrangers()
+                    child: new SwipeStrangers(currentimageIdex: (index) => currentImageIndex = index)
                   )
                 : new AvatarGlow(
                     startDelay: Duration(milliseconds: 1000),
@@ -77,7 +80,7 @@ class SearchPageState extends State<SearchPage> implements SearchObserverStateLi
             ),
             new SearchActions(
               onRefreshed: vm.onRefreshed,
-              onUploadFile: vm.onUploadFile,
+              onUploadFile: requestPrint,
             )
           ],
         );
@@ -97,8 +100,17 @@ class SearchPageState extends State<SearchPage> implements SearchObserverStateLi
     }
 
     didUpdateWidget(widget);
+  }
 
+  void requestPrint () async {
+    print('request to print a file in $currentImageIndex');
 
+    String printIndex = printersSelector(widget.store).printers[currentImageIndex].id;
+    String printCommand = "http://10.194.48.172:8080/print?DeviceId=$printIndex";
+
+    print(printCommand);
+
+    http.Response response = await http.get(printCommand);
   }
 }
 
@@ -109,6 +121,7 @@ class ViewModel {
     this.onRefreshed,
     this.onUploadFile,
   });
+
 
   static ViewModel fromStore(Store<AppState> store) {
     return new ViewModel(
@@ -124,4 +137,7 @@ class ViewModel {
   final VoidCallback onRefreshed;
   final VoidCallback onUploadFile;
 
+  void printIndex () {
+
+  }
 }
