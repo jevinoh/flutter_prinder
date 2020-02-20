@@ -1,6 +1,7 @@
 import 'package:redux/redux.dart';
 import 'package:flutter_prinder/actions/actions.dart';
 import 'package:flutter_prinder/models/models.dart';
+import 'package:flutter_prinder/actions/strangers.dart';
 
 final strangersReducer = combineReducers<Strangers>([
   new TypedReducer<Strangers, LoadStrangersAction>(_loadStrangersReducer),
