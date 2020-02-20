@@ -49,7 +49,7 @@ class _SwipeCardState extends State<SwipeCard> {
           )
         ],
         image: new DecorationImage(
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
           image: widget.profile.length > 0
             ? new NetworkImage(widget.profile[currentImageIndex].image)
             : new AssetImage('images/empty.jpg')
@@ -105,12 +105,16 @@ class _SwipeCardState extends State<SwipeCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              new Text(
+              new Expanded(
+                child: new Text(
                 makePrinterPresentationName(widget.profile[currentImageIndex]),
                 style: new TextStyle(
                   fontSize: 30.0,
                   color: Colors.white
                 ),
+                overflow: TextOverflow.fade,
+                maxLines: 1,
+                )
               )
             ],
           ),

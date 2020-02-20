@@ -7,9 +7,11 @@ class AppState {
     this.isLoading: false,
     this.mainInitialPage,
     User user,
+    Preferences preferences,
     Printers printers,
   }) :
        this.user = user ?? new User.loading(),
+       this.preferences = preferences ?? new Preferences.loading(),
        this.printers = printers ?? new Printers.loading();
 
   factory AppState.loading() => new AppState(isLoading: true);
@@ -17,18 +19,21 @@ class AppState {
   final bool isLoading;
   final int mainInitialPage;
   final User user;
+  final Preferences preferences;
   final Printers printers;
 
   AppState copyWith({
     bool isLoading,
     int mainInitialPage,
     User user,
+    Preferences preferences,
     Printers printers,
   }) {
     return new AppState(
       isLoading: isLoading ?? this.isLoading,
       mainInitialPage: mainInitialPage ?? this.mainInitialPage,
       user: user ?? this.user,
+      preferences: preferences,
       printers: printers,
     );
   }
@@ -38,6 +43,7 @@ class AppState {
     isLoading.hashCode ^
     mainInitialPage.hashCode ^
     user.hashCode ^
+    preferences.hashCode ^
     printers.hashCode;
 
   @override
@@ -47,9 +53,10 @@ class AppState {
     isLoading == other.isLoading &&
     mainInitialPage == other.mainInitialPage &&
     user == other.user &&
+    preferences == other.preferences &&
     printers == other.printers;
 
   @override
   String toString() =>
-    'AppState{isLoading: $isLoading, mainInitialPage: $mainInitialPage, printers: $printers}';
+    'AppState{isLoading: $isLoading, mainInitialPage: $mainInitialPage, preferences : $preferences, printers: $printers}';
 }

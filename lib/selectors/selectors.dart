@@ -39,3 +39,7 @@ String userFirstImageUrlSelector(Store<AppState> store) {
 Printers printersSelector(Store<AppState> store) => stateSelector(store).printers;
 
 bool hasPrintersSelector(Store<AppState> store) => printersSelector(store).printers.length > 0;
+
+Preferences preferenceSelector(Store<AppState> store) => stateSelector(store).preferences;
+
+bool hasPreferencesSelector(Store<AppState> store) => preferenceSelector(store).preferences.length > 0;

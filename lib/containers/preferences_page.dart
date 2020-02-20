@@ -7,6 +7,7 @@ import 'package:validators/validators.dart';
 import 'package:flutter_prinder/observers/search_observer.dart';
 import 'package:flutter_prinder/models/models.dart';
 import 'package:flutter_prinder/actions/actions.dart';
+import 'package:flutter_prinder/selectors/selectors.dart';
 
 
 class MyHomePage extends StatefulWidget {
@@ -35,21 +36,21 @@ class _MyHomePageState extends State<MyHomePage> {
           'Paper Size',
           'paper_size',
           defaultVal: 'A4',
-          values: ['A4', 'A3'],
+          values: ['A4', 'A3', 'Any'],
           onChange: (selected) => setState(() {paperSize = selected;}),
         ),
         DropdownPreference(
           'Color Support',
           'color_support',
           defaultVal: 'No',
-          values: ['Yes', 'No'],
+          values: ['Yes', 'No', 'Any'],
           onChange: (selected) => setState(() {color = selected;}),
         ),
         DropdownPreference(
           'Scanner Support',
           'scanner_support',
           defaultVal: 'No',
-          values: ['Yes', 'No'],
+          values: ['Yes', 'No', 'Any'],
           onChange: (selected) => setState(() {mfp = selected;}),
         ),
       ]),

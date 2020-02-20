@@ -15,7 +15,7 @@ class Printers {
 
   Printers copyWith({
     bool isLoading,
-    List<UserEntity> strangers,
+    List<PrinterEntity> printers,
   }) {
     return new Printers(isLoading: isLoading ?? this.isLoading, printers: printers ?? this.printers,);
   }
@@ -30,9 +30,9 @@ class Printers {
     identical(this, other) ||
     runtimeType == other.runtimeType &&
     isLoading == other.isLoading &&
-    printers == other.strangers;
+    printers == other.printers;
 
   @override
   String toString() =>
-    'Strangers{isLoading: $isLoading, printers: $printers}';
+    'Printers {isLoading: $isLoading, printers: $printers}';
 }

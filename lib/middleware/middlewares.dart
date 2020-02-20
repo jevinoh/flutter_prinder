@@ -65,7 +65,7 @@ void _loadPrinters(Store<AppState> store, action, NextDispatcher next) async {
   next(action);
 
   try {
-    List<PrinterEntity> printers = await UsersService.loadPrinters();
+    List<PrinterEntity> printers = await UsersService.loadPrinters(store);
 
     store.dispatch(new LoadPrintersSuccessAction(printers));
   } catch (error) {

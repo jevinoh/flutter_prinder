@@ -86,15 +86,19 @@ class SearchPageState extends State<SearchPage> implements SearchObserverStateLi
   }
 
   void rebuild() async {
+    searchObserver.initState();
     try {
-      List<PrinterEntity> printers = await UsersService.loadPrinters();
+      List<PrinterEntity> printers = await UsersService.loadPrinters(widget.store);
 
       widget.store.dispatch(new LoadPrintersSuccessAction(printers));
+
     } catch (error) {
       widget.store.dispatch(new LoadPrintersFailAction(error.message));
     }
 
     didUpdateWidget(widget);
+
+
   }
 }
 

@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
+import 'package:flutter_prinder/selectors/selectors.dart';
 import 'package:http/http.dart' as http;
+import 'package:redux/redux.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_prinder/entities/entities.dart';
+import 'package:flutter_prinder/models/models.dart';
 
 class UsersService {
   static String baseUrl = 'https://randomuser.me/api';
@@ -36,11 +39,18 @@ class UsersService {
     return _preference;
   }
 
-  static Future<List<PrinterEntity>> loadPrinters() async {
+  static Future<List<PrinterEntity>> loadPrinters(Store<AppState> store) async {
     List<PrinterEntity> _printers = [];
     Random random = new Random();
+    String filter;
 
-    String getPrinter = "http://10.194.48.174:8080/get_all_printers";
+    if(hasPreferencesSelector(store)) {
+      filter= preferenceSelector(store).preferences[0].getStringFilter();
+    }
+
+    String getPrinter = "http://10.194.48.172:8080/get_printers?$filter";
+
+    print(getPrinter);
 
     http.Response response = await http.get(getPrinter);
 

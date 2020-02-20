@@ -53,6 +53,11 @@ class PreferenceEntity {
     return 'PreferenceEntity{paperSize: $paperSize, color: $color, mfp: $mfp, location: $location}';
   }
 
+  String getStringFilter(){
+    return 'paperSize=$paperSize&color=$color&mfp=$mfp&location=10.317288,123.908172';
+  }
+
+
   @override
   int get hashCode =>
       paperSize.hashCode ^

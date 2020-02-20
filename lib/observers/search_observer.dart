@@ -29,7 +29,7 @@ class SearchObserverProvider {
     observers.forEach((SearchObserverStateListener obj) => obj.onStateChanged(state));
   }
 
-  void dispose(SearchObserverStateListener thisObserver) {
+  void disposeObserver(SearchObserverStateListener thisObserver) {
     for (var obj in observers) {
       if (obj == thisObserver) {
         observers.remove(obj);
