@@ -7,6 +7,13 @@ import 'package:flutter_prinder/presentation/swipe_card.dart';
 import 'package:flutter_prinder/selectors/selectors.dart';
 
 class SwipeStrangers extends StatelessWidget {
+  SwipeStrangers({
+    Key key,
+    this.currentimageIdex,
+  }) : super(key: key);
+
+  final ValueChanged<int> currentimageIdex;
+
   @override
   Widget build(BuildContext context) {
     return new StoreConnector<AppState, ViewModel>(
@@ -19,6 +26,7 @@ class SwipeStrangers extends StatelessWidget {
               onNextImage: vm.onNextImage,
               onPreviousImage: vm.onPreviousImage,
               onSeeDetails: vm.onSeeDetails,
+              currentImageIndex: currentimageIdex,
             )
           : new Container();
       },

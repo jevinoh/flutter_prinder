@@ -12,6 +12,7 @@ class SwipeCard extends StatefulWidget {
     this.onNextImage,
     this.onPreviousImage,
     this.onSeeDetails,
+    this.currentImageIndex,
   }) : assert(initialImageIndex >= 0),
        assert(initialImageIndex < profile.length || initialImageIndex == 0),
        super(key: key);
@@ -20,6 +21,7 @@ class SwipeCard extends StatefulWidget {
   final int initialImageIndex;
   final ValueChanged<int> onNextImage;
   final ValueChanged<int> onPreviousImage;
+  final ValueChanged<int> currentImageIndex;
   final VoidCallback onSeeDetails;
 
   @override
@@ -132,14 +134,20 @@ class _SwipeCardState extends State<SwipeCard> {
     if (details.globalPosition.dx < context.size.width / 2) {
       if (currentImageIndex > 0) {
         setState(() => currentImageIndex--);
-        if (widget.onPreviousImage != null)
+        if (widget.onPreviousImage != null) {
           widget.onPreviousImage(currentImageIndex);
+          widget.currentImageIndex(currentImageIndex);
+        }
+
       }
     } else {
       if (currentImageIndex < widget.profile.length - 1) {
         setState(() => currentImageIndex++);
-        if (widget.onNextImage != null)
+        if (widget.onNextImage != null) {
           widget.onNextImage(currentImageIndex);
+          widget.currentImageIndex(currentImageIndex);
+        }
+
       }
     }
   }
