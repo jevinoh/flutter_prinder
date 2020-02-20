@@ -9,6 +9,8 @@ class PrinterEntity {
     this.description: '',
     this.image: '',
     this.distance: 0,
+    this.latitude: 10.3167812,
+    this.longitude: 123.9077474,
   });
 
   factory PrinterEntity.fromJson(Map<String, dynamic> data) {
@@ -21,6 +23,8 @@ class PrinterEntity {
       description: data['description'] as String,
       image: data['image'] as String,
       distance: data['distance'] as int,
+      latitude: data['latitude'] as double,
+      longitude: data['longitude'] as double,
     );
   }
 
@@ -30,6 +34,9 @@ class PrinterEntity {
   final String description;
   final String image;
   final int distance;
+  final double latitude;
+  final double longitude;
+
 
   PrinterEntity copyWith({
     String id,
@@ -46,6 +53,8 @@ class PrinterEntity {
       description: description ?? this.description,
       image: image ?? this.image,
       distance: distance ?? this.distance,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
     );
   }
 
